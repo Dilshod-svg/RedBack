@@ -1,0 +1,67 @@
+.kirish{
+    height:520px;
+    width: 300px;
+    background-color: rgb(200, 198, 202);
+    border-radius: 12px;
+    align-content: flex-start;
+    margin: 0 auto;
+   
+    
+}
+
+.form-group{
+    padding: 35px;
+    margin-left: 12px;
+}
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background: black !important;
+}
+.logo{
+    text-align: center;
+    margin-top: 20px; 
+}
+.logo h1{
+    font-weight: 600;
+    color: aliceblue;
+}
+.logo p{
+    color: rgb(181, 183, 183);
+}
+
+
+
+
+.button-a{
+    padding: 15px 30px;
+    border-radius: 15px;
+    margin-bottom: 10px;
+    margin-top: 15px;
+}
+.button-a a{
+    color: aliceblue;
+    text-decoration: none;
+
+}
+.c{
+    background-color: rgb(107, 107, 238);
+}
+.b{
+    background-color: rgb(243, 9, 9);
+
+}
+.d{
+    background-color: rgb(0, 0, 0);
+}
+.d img{
+    height: 30px;
+    width: 30px;
+    margin: 5px;
+    margin-right:8px;
+}
+.container1{
+    background-color: black;
+    max-width: 1440;
+    margin: 0 auto;
+    text-align: center;
+}
