@@ -1,264 +1,271 @@
-.container{
+.container {
     max-width: 1440px;
     margin: 0 auto;
 }
-body{
+
+body {
     background: #000;
-    
-}
-.flexbox{
-   display: flex;
-
 }
 
+.flexbox {
+    display: flex;
+}
 
-
-
-
-
-
-
-
-
-.button button{
+.button button {
     padding: 14px 44px;
     background-color: rgb(255, 0, 0);
     color: white;
     border-radius: 12px;
-
 }
 
-.hero{
+.hero {
     padding: 50px 30px;
 }
-.hero__text h1{
-    color: white;
-    font-size:64px ;
-    font-weight: 500px;
 
+.hero__text h1 {
+    color: white;
+    font-size: 64px;
+    font-weight: 500px;
 }
-.hero__text p{
-     font-size: 28px;
-     color: white;
-     line-height: 40px ;
-     width: 50%;
+
+.hero__text p {
+    font-size: 28px;
+    color: white;
+    line-height: 40px;
+    width: 50%;
 }
-.hero__text{
+
+.hero__text {
     width: 100%;
 }
 
-
-
-
-
-.hero{
-   background-image: url(../rasm/5.png);
-   background-repeat: no-repeat;
-   background-size: cover;
-   padding-bottom: 200px !important;
-    
+.hero {
+    background-image: url(../rasm/5.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    padding-bottom: 200px !important;
 }
+
 body {
-  font-family: Inter, system-ui, Arial;
-
+    font-family: Inter, system-ui, Arial;
 }
+
 
 /* SECTION */
-.carousel-section {
 
-  background: #000; /* Karusel orqa fon qora */
+.carousel-section {
+    background: #000;
+    /* Karusel orqa fon qora */
 }
 
 .carousel-wrap {
-  width: 90vw;
-  margin: 0 auto;
-  overflow: hidden;
-  margin: 0 auto;
-  max-width: 1440px;
-  color: aliceblue;
+    width: 90vw;
+    margin: 0 auto;
+    overflow: hidden;
+    margin: 0 auto;
+    max-width: 1440px;
+    color: aliceblue;
 }
 
 .carousel {
-  display: flex;
-  gap: 16px;
-  overflow-x: auto;
-  scroll-snap-type: x mandatory;
-  padding: 20px 0;
-  margin: 0 auto;
-  max-width: 1440px;
-  background-color: rgb(0, 0, 0);
+    display: flex;
+    gap: 16px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding: 20px 0;
+    margin: 0 auto;
+    max-width: 1440px;
+    background-color: rgb(0, 0, 0);
 }
 
 .carousel::-webkit-scrollbar {
-  display: none;
+    display: none;
 }
 
 .card {
-  flex: 0 0 calc(25% - 16px); /* 4 ta card yonma-yon */
-  background: #121035;
-  border-radius: 12px;
-  overflow: hidden;
-  box-shadow: 0 6px 16px rgba(0,0,0,0.6);
-  scroll-snap-align: start;
-  transition: transform .3s;
+    flex: 0 0 calc(25% - 16px);
+    /* 4 ta card yonma-yon */
+    background: #121035;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.6);
+    scroll-snap-align: start;
+    transition: transform .3s;
 }
 
 .card:hover {
-  transform: translateY(-6px);
+    transform: translateY(-6px);
 }
 
 .card img {
-  width: 100%;
-  height: 220px;
-  object-fit: cover;
-  display: block;
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    display: block;
 }
 
 .caption {
-  padding: 12px;
+    padding: 12px;
 }
 
 .title {
-  font-size: 18px;
-  font-weight: 600;
-  margin-bottom: 4px;
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 4px;
 }
 
 .meta {
-  font-size: 14px;
-  opacity: 0.8;
+    font-size: 14px;
+    opacity: 0.8;
 }
 
+
 /* RESPONSIVE */
+
 @media (max-width: 1200px) {
-  .card {
-    flex: 0 0 calc(33.3% - 16px); /* 3 ta card */
-  }
+    .card {
+        flex: 0 0 calc(33.3% - 16px);
+        /* 3 ta card */
+    }
 }
 
 @media (max-width: 900px) {
-  .card {
-    flex: 0 0 calc(50% - 16px); /* 2 ta card */
-  }
+    .card {
+        flex: 0 0 calc(50% - 16px);
+        /* 2 ta card */
+    }
 }
 
 @media (max-width: 600px) {
-  .card {
-    flex: 0 0 100%; /* 1 ta card */
-  }
+    .card {
+        flex: 0 0 100%;
+        /* 1 ta card */
+    }
 }
- .header {
-      background: #000;
-      color: white;
-      padding: 10px 20px;
-      position: relative;
-      z-index: 1000;
-    }
+
+.header {
+    background: #000;
+    color: white;
+    padding: 10px 20px;
+    position: relative;
+    z-index: 1000;
+}
+
+.main-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.logo h1 {
+    font-size: 40px;
+    margin: 0;
+    color: red;
+}
+
+
+/* nav (desktop holati) */
+
+.nav {
+    display: flex;
+}
+
+.navigations {
+    list-style: none;
+    display: flex;
+    margin: 0;
+    padding: 0;
+}
+
+.navigation a {
+    color: white;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 20px;
+}
+
+
+/* search */
+
+.search {
+    display: flex;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    align-items: center;
+    background: #111;
+    padding: 8px 18px;
+    border-radius: 5px;
+    width: auto;
+}
+
+.form input {
+    border: none;
+    outline: none;
+    background: transparent;
+    color: white;
+    padding: 5px;
+    padding-right: 28px;
+}
+
+
+/* burger */
+
+.burger {
+    display: none;
+    font-size: 26px;
+    cursor: pointer;
+    margin-left: 15px;
+}
+
+.burger i {
+    color: white;
+}
+
+
+/* overlay */
+
+.overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: none;
+    z-index: 998;
+}
+
+.overlay.active {
+    display: block;
+}
+
+
+/* 📱 sm → 992px */
+
+@media (max-width: 992px) {
     .main-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo h1 {
-      font-size: 40px;
-      margin: 0;
-      color: red;
-    }
-
-    /* nav (desktop holati) */
-    .nav {
-      display: flex;
-    }
-    .navigations {
-      list-style: none;
-      display: flex;
-      
-      margin: 0;
-      padding: 0;
-    }
-    .navigation a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-    }
-
-    /* search */
-    .search {
-      display: flex;
-      align-items: center;
-    }
-    .form {
-      display: flex;
-      align-items: center;
-      background: #111;
-      padding: 8px 18px;
-      border-radius: 5px;
-      width: auto;
-    }
-    .form input {
-      border: none;
-      outline: none;
-      background: transparent;
-      color: white;
-      padding: 5px;
-      padding-right: 28px;
-
-    }
-
-    /* burger */
-    .burger {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-      margin-left: 15px;
-    }
-    .burger i {
-      color: white;
-    }
-
-    /* overlay */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      z-index: 998;
-    }
-    .overlay.active {
-      display: block;
-    }
-
-    /* 📱 sm → 992px */
-    @media (max-width: 992px) {
-      .main-header {
         display: grid;
         grid-template-columns: 1fr auto 1fr;
         align-items: center;
         justify-content: space-between;
-      }
-   
-      .search {
-      position: relative;
-      left: 10  0px;
-     
-       
-      }
-      .burger {
+    }
+    .search {
+        position: relative;
+        left: 10 0px;
+    }
+    .burger {
         display: block;
         grid-column: 3;
         justify-self: end;
-      }
-
-      .logo{
+    }
+    .logo {
         display: none;
-      }
-
-      /* nav yon tomondan chiqadigan */
-      .nav {
+    }
+    /* nav yon tomondan chiqadigan */
+    .nav {
         position: fixed;
         top: 0;
         right: -250px;
@@ -266,87 +273,87 @@ body {
         width: 250px;
         background: #111;
         flex-direction: column;
-        align-items: flex-start; /* yuqoriga joylashadi */
+        align-items: flex-start;
+        /* yuqoriga joylashadi */
         padding: 20px;
         transition: right 0.3s ease-in-out;
         z-index: 999;
-      }
-      .nav.active {
+    }
+    .nav.active {
         right: 0;
-      }
-      .navigations {
+    }
+    .navigations {
         flex-direction: column;
         gap: 20px;
         width: 100%;
-      }
     }
+}
 
-    /* 💻 Desktop (992px dan katta) */
-    @media (min-width: 993px) {
-      .main-header {
+
+/* 💻 Desktop (992px dan katta) */
+
+@media (min-width: 993px) {
+    .main-header {
         display: grid;
         grid-template-columns: auto 1fr auto;
         align-items: center;
-      }
-      .logo {
+    }
+    .logo {
         grid-column: 1;
-      }
-      .nav {
+    }
+    .nav {
         grid-column: 2;
         justify-content: center;
-      }
-      .search {
+    }
+    .search {
         grid-column: 3;
         justify-self: end;
-      }
-      .burger {
-        display: none;
-      }
     }
-    /* 📱 Telefon / planshet — 992px gacha */
-@media (max-width: 992px) {
-  .burger {
-    display: block;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 1001; /* nav ustida bo‘lsin */
-  }
+    .burger {
+        display: none;
+    }
 }
 
-/* 💻 Desktop — 992px dan katta */
-@media (min-width: 993px) {
-  .burger {
-    display: none !important;   /* butunlay yo‘qoladi */
-    position: static !important;/* joylashuvi ham tozalanadi */
-    margin: 0 !important;       /* ortiqcha joy qoldirmaydi */
-    width: 0 !important;        /* chiziq ham chiqmaydi */
-    height: 0 !important;
-    overflow: hidden;           /* hech narsa tashqarida qolmaydi */
-  }
-}
-/* nav yon tomondan chiqadigan (telefon / planshet) */
-.nav {
-  position: fixed;
-  top: 0;
-  right: -100%;   /* ❌ -250px emas, balki -100% */
-  height: 100%;
-  width: 250px;
-  background: #111;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px;
-  transition: right 0.3s ease-in-out;
-  z-index: 999;
-}
-.nav.active {
-  right: 0;
-}
-/* 📱 Telefon va planshet (992px gacha) */
+
+/* 📱 Telefon / planshet — 992px gacha */
+
 @media (max-width: 992px) {
-  .nav {
+    .burger {
+        display: block;
+        font-size: 26px;
+        cursor: pointer;
+        z-index: 1001;
+        /* nav ustida bo‘lsin */
+    }
+}
+
+
+/* 💻 Desktop — 992px dan katta */
+
+@media (min-width: 993px) {
+    .burger {
+        display: none !important;
+        /* butunlay yo‘qoladi */
+        position: static !important;
+        /* joylashuvi ham tozalanadi */
+        margin: 0 !important;
+        /* ortiqcha joy qoldirmaydi */
+        width: 0 !important;
+        /* chiziq ham chiqmaydi */
+        height: 0 !important;
+        overflow: hidden;
+        /* hech narsa tashqarida qolmaydi */
+    }
+}
+
+
+/* nav yon tomondan chiqadigan (telefon / planshet) */
+
+.nav {
     position: fixed;
     top: 0;
-    right: -100%;   /* to‘liq yashirin */
+    right: -100%;
+    /* ❌ -250px emas, balki -100% */
     height: 100%;
     width: 250px;
     background: #111;
@@ -355,203 +362,246 @@ body {
     padding: 20px;
     transition: right 0.3s ease-in-out;
     z-index: 999;
-  }
-  .nav.active {
-    right: 0; /* chiqarish */
-  }
-  .navigations {
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-  }
 }
+
+.nav.active {
+    right: 0;
+}
+
+
+/* 📱 Telefon va planshet (992px gacha) */
+
+@media (max-width: 992px) {
+    .nav {
+        position: fixed;
+        top: 0;
+        right: -100%;
+        /* to‘liq yashirin */
+        height: 100%;
+        width: 250px;
+        background: #111;
+        flex-direction: column;
+        align-items: flex-start;
+        padding: 20px;
+        transition: right 0.3s ease-in-out;
+        z-index: 999;
+    }
+    .nav.active {
+        right: 0;
+        /* chiqarish */
+    }
+    .navigations {
+        flex-direction: column;
+        gap: 20px;
+        width: 100%;
+    }
+}
+
 
 /* 💻 Desktop (993px dan katta) */
-@media (min-width: 993px) {
-  .nav {
-    position: static;      /* joylashuv normal */
-    display: flex;         /* yana chiqadi */
-    justify-content: center;
-    align-items: center;
-    background: transparent;
-    height: auto;
-    width: auto;
-    padding: 0;
-  }
-  .navigations {
-    flex-direction: row;   /* yonma-yon */
-    gap: 20px;
-  }
-}
 
+@media (min-width: 993px) {
+    .nav {
+        position: static;
+        /* joylashuv normal */
+        display: flex;
+        /* yana chiqadi */
+        justify-content: center;
+        align-items: center;
+        background: transparent;
+        height: auto;
+        width: auto;
+        padding: 0;
+    }
+    .navigations {
+        flex-direction: row;
+        /* yonma-yon */
+        gap: 20px;
+    }
+}
 
 
 /* Kategoriyalar */
+
 .categories {
-  padding: 50px 20px;
-  background: #000;
-  text-align: center;
+    padding: 50px 20px;
+    background: #000;
+    text-align: center;
 }
 
 .section-title {
-  color: #fff;
-  font-size: 28px;
-  margin-bottom: 30px;
+    color: #fff;
+    font-size: 28px;
+    margin-bottom: 30px;
 }
 
 .grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 25px;
-  max-width: 1200px;
-  margin: auto;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    max-width: 1200px;
+    margin: auto;
 }
 
 .card1 {
-  background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
-  padding: 10px;
-  border-radius: 14px;
-  display: flex;
-  align-items: center;
-  justify-content: flex-start;
-  gap: 15px;
-  height: 150px;      /* past bo‘yi */
-  opacity: 0;
-  transform: translateY(60px);
-  animation: slideUp 0.8s ease forwards;
-  
+    background: linear-gradient(145deg, #1a1a1a, #2a2a2a);
+    padding: 10px;
+    border-radius: 14px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 15px;
+    height: 150px;
+    /* past bo‘yi */
+    opacity: 0;
+    transform: translateY(60px);
+    animation: slideUp 0.8s ease forwards;
 }
-.grid div:hover{
-  transform: scale();
+
+.grid div:hover {
+    transform: scale();
 }
 
 
 /* Navbat bilan chiqishi */
-.card1:nth-child(1) { animation-delay: 0.2s; }
-.card1:nth-child(2) { animation-delay: 0.4s; }
-.card1:nth-child(3) { animation-delay: 0.6s; }
-.card1:nth-child(4) { animation-delay: 0.8s; }
-.card1:nth-child(5) { animation-delay: 1s; }
-.card1:nth-child(6) { animation-delay: 1.2s; }
+
+.card1:nth-child(1) {
+    animation-delay: 0.2s;
+}
+
+.card1:nth-child(2) {
+    animation-delay: 0.4s;
+}
+
+.card1:nth-child(3) {
+    animation-delay: 0.6s;
+}
+
+.card1:nth-child(4) {
+    animation-delay: 0.8s;
+}
+
+.card1:nth-child(5) {
+    animation-delay: 1s;
+}
+
+.card1:nth-child(6) {
+    animation-delay: 1.2s;
+}
 
 .card1 img {
-  width: 100px;
-  height: 80px;
+    width: 100px;
+    height: 80px;
 }
 
 .card1 h3 {
-  color: #fff;
-  font-size: 18px;
-  margin: 0;
-  text-align: left;
+    color: #fff;
+    font-size: 18px;
+    margin: 0;
+    text-align: left;
 }
+
 
 /* Hover effekti */
+
 .card:hover {
-  transform: scale(1.05) translateY(-5px);
-  transition: 0.3s ease;
+    transform: scale(1.05) translateY(-5px);
+    transition: 0.3s ease;
 }
 
+
 /* Animatsiya */
+
 @keyframes slideUp {
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }
 
 
 /* Footer */
+
 .footer {
-  background: #0d0d0d;
-  color: #ccc;
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 50px;
+    background: #0d0d0d;
+    color: #ccc;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
 }
 
 .footer-container {
-  max-width: 1000px;
-  margin: auto;
+    max-width: 1000px;
+    margin: auto;
 }
+
 
 /* Logo */
+
 .footer-logo h2 {
-  color: #fff;
-  font-size: 26px;
-  margin-bottom: 20px;
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 20px;
 }
 
+
 /* Navigatsiya */
+
 .footer-nav {
-  list-style: none;
-  padding-bottom: 30px;
-  margin: 0 0 20px 0;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+    list-style: none;
+    padding-bottom: 30px;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .footer-nav li a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 24px;
-  transition: color 0.3s;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s;
 }
 
 .footer-nav li a:hover {
-  color: #ff3d3d; /* hover effekti */
+    color: #ff3d3d;
+    /* hover effekti */
 }
+
 
 /* Social icons */
+
 .social-links {
-  margin: 20px 0;
+    margin: 20px 0;
 }
 
-.social-links  {
-  display:flex;
-  gap: 44px;
-  transition: transform 0.3s;
-  justify-content: center;
+.social-links {
+    display: flex;
+    gap: 44px;
+    transition: transform 0.3s;
+    justify-content: center;
 }
 
 .social-links a:hover {
-  transform: scale(1.2);
+    transform: scale(1.2);
 }
 
+
 /* Qisqa matn */
+
 .footer-info {
-  font-size: 12px;
-  color: #777;
-  margin-top: 15px;
+    font-size: 12px;
+    color: #777;
+    margin-top: 15px;
 }
 
 @media only screen and ( max-width:768px) {
-.hero__text{
-  width: 100%;
-
+    .hero__text {
+        text-align: center !important;
+        width: 100%;
+    }
+    .hero__text p {
+        width: 90% !important;
+    }
 }
-.hero__text p{
-  width: 90% !important ;
-}
-
-  
-}
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
