@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Kino Player</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <style>
+        body {
+            margin: 0;
+            background: #0d0d0d;
+            color: #fff;
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        
+        header {
+            background: #111;
+            padding: 12px 16px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+        }
+        
+        header h1 {
+            font-size: 18px;
+            margin: 0;
+            color: #ff5500;
+        }
+        
+        header a {
+            color: #111;
+            text-decoration: none;
+            background: #ff0400;
+            padding: 6px 12px;
+            border-radius: 5px;
+            font-weight: bold;
+            transition: 0.3s;
+            font-size: 14px;
+        }
+        
+        header a:hover {
+            background: #e61b00;
+        }
+        
+        main {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+        }
+        
+        video,
+        iframe {
+            width: 100%;
+            max-width: 960px;
+            aspect-ratio: 16 / 9;
+            /* doim proporsiyani saqlaydi */
+            border-radius: 10px;
+            box-shadow: 0 0 20px rgba(255, 255, 255, 0.15);
+        }
+        /* Responsiv o'lchamlar */
+        
+        @media (max-width: 768px) {
+            header h1 {
+                font-size: 16px;
+            }
+            header a {
+                font-size: 12px;
+                padding: 5px 10px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            header {
+                flex-direction: column;
+                gap: 8px;
+                text-align: center;
+            }
+            video,
+            iframe {
+                width: 100%;
+                aspect-ratio: 16 / 9;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1>🎬 RedBack</h1>
+        <a href="boyevik.html">⬅ Orqaga</a>
+    </header>
+
+    <main>
+        <video id="videoPlayer" controls autoplay style="display:none;"></video>
+        <iframe id="ytPlayer" allowfullscreen style="display:none;"></iframe>
+    </main>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const videoUrl = urlParams.get('video');
+
+        const videoPlayer = document.getElementById('videoPlayer');
+        const ytPlayer = document.getElementById('ytPlayer');
+
+        if (videoUrl) {
+            if (videoUrl.includes("youtu")) {
+                let embedUrl = videoUrl;
+                if (videoUrl.includes("youtu.be")) {
+                    const videoId = videoUrl.split("youtu.be/")[1].split("?")[0];
+                    embedUrl = "https://www.youtube.com/embed/" + videoId;
+                } else if (videoUrl.includes("watch?v=")) {
+                    const videoId = videoUrl.split("watch?v=")[1].split("&")[0];
+                    embedUrl = "https://www.youtube.com/embed/" + videoId;
+                }
+                ytPlayer.src = embedUrl;
+                ytPlayer.style.display = "block";
+            } else {
+                videoPlayer.src = videoUrl;
+                videoPlayer.style.display = "block";
+            }
+        } else {
+            alert("Video URL topilmadi!");
+        }
+    </script>
+</body>
+
+</html>
