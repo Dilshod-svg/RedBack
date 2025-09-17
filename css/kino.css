@@ -1,435 +1,561 @@
-.container{
-  max-width: 1440px;
-  margin: 0 auto;
+:root {
+    --bg: #0b0b0d;
+    --card: #0f1113;
+    --muted: #bfc5c9;
+    --accent: #e43b3b;
+    /* qizil tugma rangi */
+    --radius: 18px;
 }
 
-.header {
-      background: #000;
-      color: white;
-      padding: 10px 20px;
-      position: relative;
-      z-index: 1000;
-    }
-    .main-header {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-    }
-    .logo h1 {
-      font-size: 40px;
-      margin: 0;
-      color: red;
-    }
 
-    /* nav (desktop holati) */
-    .nav {
-      display: flex;
-    }
-    .navigations {
-      list-style: none;
-      display: flex;
-      margin: 0;
-      padding: 0;
-    }
-    .navigation a {
-      color: white;
-      text-decoration: none;
-      font-weight: bold;
-      font-size: 20px;
-    }
+/* Reset */
 
-    /* search */
-    .search {
-      display: flex;
-      align-items: center;
-    }
-    .form {
-      display: flex;
-      align-items: center;
-      background: #111;
-      padding: 8px 18px;
-      border-radius: 5px;
-      width: auto;
-    }
-    .form input {
-      border: none;
-      outline: none;
-      background: transparent;
-      color: white;
-      padding: 5px;
-      padding-right: 28px;
-
-    }
-
-    /* burger */
-    .burger {
-      display: none;
-      font-size: 26px;
-      cursor: pointer;
-      margin-left: 15px;
-    }
-    .burger i {
-      color: white;
-    }
-
-    /* overlay */
-    .overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(0,0,0,0.6);
-      display: none;
-      z-index: 998;
-    }
-    .overlay.active {
-      display: block;
-    }
-
-    /* 📱 sm → 992px */
-    @media (max-width: 992px) {
-      .main-header {
-        display: grid;
-        grid-template-columns: 1fr auto 1fr;
-        align-items: center;
-        justify-content: space-between;
-      }
-   
-      .search {
-      position: relative;
-      left: 10  0px;
-     
-       
-      }
-      .burger {
-        display: block;
-        grid-column: 3;
-        justify-self: end;
-      }
-
-      .logo{
-        display: none;
-      }
-
-      /* nav yon tomondan chiqadigan */
-      .nav {
-        position: fixed;
-        top: 0;
-        right: -250px;
-        height: 100%;
-        width: 250px;
-        background: #111;
-        flex-direction: column;
-        align-items: flex-start; /* yuqoriga joylashadi */
-        padding: 20px;
-        transition: right 0.3s ease-in-out;
-        z-index: 999;
-      }
-      .nav.active {
-        right: 0;
-      }
-      .navigations {
-        flex-direction: column;
-        gap: 20px;
-        width: 100%;
-      }
-    }
-
-    /* 💻 Desktop (992px dan katta) */
-    @media (min-width: 993px) {
-      .main-header {
-        display: grid;
-        grid-template-columns: auto 1fr auto;
-        align-items: center;
-      }
-      .logo {
-        grid-column: 1;
-      }
-      .nav {
-        grid-column: 2;
-        justify-content: center;
-      }
-      .search {
-        grid-column: 3;
-        justify-self: end;
-      }
-      .burger {
-        display: none;
-      }
-    }
-    /* 📱 Telefon / planshet — 992px gacha */
-@media (max-width: 992px) {
-  .burger {
-    display: block;
-    font-size: 26px;
-    cursor: pointer;
-    z-index: 1001; /* nav ustida bo‘lsin */
-  }
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0
 }
 
-/* 💻 Desktop — 992px dan katta */
-@media (min-width: 993px) {
-  .burger {
-    display: none !important;   /* butunlay yo‘qoladi */
-    position: static !important;/* joylashuvi ham tozalanadi */
-    margin: 0 !important;       /* ortiqcha joy qoldirmaydi */
-    width: 0 !important;        /* chiziq ham chiqmaydi */
-    height: 0 !important;
-    overflow: hidden;           /* hech narsa tashqarida qolmaydi */
-  }
-}
-/* nav yon tomondan chiqadigan (telefon / planshet) */
-.nav {
-  position: fixed;
-  top: 0;
-  right: -100%;   /* ❌ -250px emas, balki -100% */
-  height: 100%;
-  width: 250px;
-  background: #111;
-  flex-direction: column;
-  align-items: flex-start;
-  padding: 20px;
-  transition: right 0.3s ease-in-out;
-  z-index: 999;
-}
-.nav.active {
-  right: 0;
-}
-/* 📱 Telefon va planshet (992px gacha) */
-@media (max-width: 992px) {
-  .nav {
-    position: fixed;
-    top: 0;
-    right: -100%;   /* to‘liq yashirin */
-    height: 100%;
-    width: 250px;
-    background: #111;
-    flex-direction: column;
-    align-items: flex-start;
-    padding: 20px;
-    transition: right 0.3s ease-in-out;
-    z-index: 999;
-  }
-  .nav.active {
-    right: 0; /* chiqarish */
-  }
-  .navigations {
-    flex-direction: column;
-    gap: 20px;
-    width: 100%;
-  }
+html,
+body {
+    height: 100%
 }
 
-/* 💻 Desktop (993px dan katta) */
-@media (min-width: 993px) {
-  .nav {
-    position: static;      /* joylashuv normal */
-    display: flex;         /* yana chiqadi */
-    justify-content: center;
+body {
+    font-family: Inter, system-ui, -apple-system, "Segoe UI", Roboto, Arial;
+    background: var(--bg);
+    color: #fff;
+    line-height: 1.35;
+}
+
+
+/* HERO */
+
+.hero {
+    min-height: 100vh;
+    display: flex;
     align-items: center;
+    justify-content: center;
+    position: relative;
+    overflow: hidden;
+}
+
+.hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url('./--REPLACE-HERO--.jpg');
+    /* <-- o'zgartiring */
+    background-size: cover;
+    background-position: center;
+    filter: contrast(0.85) saturate(0.7) brightness(0.25) sepia(0.12);
+    transform: scale(1.05);
+    z-index: 0;
+}
+
+.hero::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: radial-gradient(ellipse at center, rgba(0, 0, 0, 0) 40%, rgba(0, 0, 0, 0.65) 100%);
+    z-index: 1;
+}
+
+
+/* Card */
+
+.hero-card {
+    position: relative;
+    z-index: 2;
+    width: min(1100px, 94%);
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border-radius: var(--radius);
+    padding: 36px;
+    display: grid;
+    gap: 18px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    backdrop-filter: blur(6px);
+}
+
+
+/* Top bar */
+
+.card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+}
+
+.brand {
+    display: flex;
+    align-items: center;
+    gap: 12px
+}
+
+.logo-dot {
+    width: 44px;
+    height: 44px;
+    border-radius: 10px;
+    background: linear-gradient(135deg, #222, #111);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.brand-title {
+    font-weight: 700;
+    font-size: 18px
+}
+
+.brand-sub {
+    font-size: 12px;
+    color: var(--muted)
+}
+
+nav .menu {
+    display: flex;
+    gap: 18px;
+    font-weight: 500;
+    color: var(--muted)
+}
+
+nav .menu a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 15px
+}
+
+.auth-btn {
+    padding: 8px 14px;
+    border-radius: 12px;
     background: transparent;
-    height: auto;
-    width: auto;
-    padding: 0;
-  }
-  .navigations {
-    flex-direction: row;   /* yonma-yon */
-    gap: 20px;
-  }
+    border: 1px solid rgba(255, 255, 255, 0.05);
+    font-weight: 600;
+    color: #fff
 }
 
 
-body {
-  font-family: Inter, system-ui, Arial;
+/* Hero main */
 
+.hero-main {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 28px;
+}
+
+.poster {
+    width: 240px;
+    height: 240px;
+    border-radius: 14px;
+    overflow: hidden;
+    background-image: url('./--REPLACE-HERO--.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.content {
+    flex: 1;
+    min-width: 260px;
+    color: #fff
+}
+
+.kicker {
+    text-transform: uppercase;
+    letter-spacing: 1.6px;
+    color: var(--muted);
+    font-size: 13px;
+    margin-bottom: 8px
+}
+
+h1 {
+    font-size: 48px;
+    line-height: 1;
+    margin-bottom: 12px;
+    font-weight: 700
+}
+
+.lead {
+    color: var(--muted);
+    font-size: 16px;
+    margin-bottom: 18px;
+    max-width: 70ch
 }
 
 
+/* Buttons */
 
-
-/* style.css */
-body {
-  margin: 0;
- 
-  background: #111;
-  color: #eee;
+.actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap
 }
 
-/* Hero kino banner */
-.movie-hero {
-  position: relative;
-  height: 80vh;
-  background: url("../rasm/5.png") no-repeat center/cover;
-  display: flex;
-  align-items: center;
-  padding: 40px;
-  color: #fff;
+.btn {
+    padding: 12px 20px;
+    border-radius: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    min-width: 120px;
+    text-align: center
 }
 
-.movie-hero .overlay {
-  position: absolute;
-  top: 0; left: 0; right: 0; bottom: 0;
-  background: rgba(0, 0, 0, 0.6);
+.btn-primary {
+    background: linear-gradient(180deg, var(--accent), #c83232);
+    color: white
 }
 
-.movie-info {
-  position: relative;
-  max-width: 600px;
+.btn-ghost {
+    background: transparent;
+    color: var(--muted);
+    border: 1px solid rgba(255, 255, 255, 0.04)
 }
 
-.movie-info h1 {
-  font-size: 48px;
-  margin-bottom: 10px;
+
+/* Meta + genres */
+
+.meta {
+    display: flex;
+    gap: 16px;
+    margin-top: 10px;
+    color: var(--muted);
+    font-size: 14px
 }
 
-.movie-info .genre, .movie-info .rating {
-  font-size: 18px;
-  margin: 5px 0;
-  color: #ffd700;
+.genres {
+    margin-top: 22px;
+    display: flex;
+    gap: 12px;
+    flex-wrap: wrap
 }
 
-.movie-info .desc {
-  margin: 15px 0;
-  line-height: 1.6;
-  color: #ddd;
+.genre-chip {
+    padding: 8px 14px;
+    border-radius: 999px;
+    background: rgba(255, 255, 255, 0.02);
+    color: var(--muted);
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    font-weight: 600
 }
 
-.watch-btn {
-  display: inline-block;
-  background: #e50914;
-  color: #fff;
-  padding: 12px 20px;
-  text-decoration: none;
-  border-radius: 6px;
-  font-size: 16px;
-  transition: background 0.3s;
+
+/* Catalog */
+
+.catalog {
+    max-width: 1200px;
+    margin: 28px auto;
+    padding: 0 18px 80px;
+    color: var(--muted)
 }
 
-.watch-btn:hover {
-  background: #b20710;
+.catalog h2 {
+    color: #fff;
+    margin-bottom: 12px
 }
 
-/* Rekomendatsiyalar */
-.recommend-section {
-  padding: 40px 20px;
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+    gap: 14px
 }
 
-.recommend-section h2 {
-  font-size: 28px;
-  margin-bottom: 20px;
+.card {
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border-radius: 12px;
+    padding: 10px;
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    min-height: 200px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: 0.4s;
+    text-align: center;
 }
 
-.rec-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
-  gap: 20px;
+.card:hover {
+    transform: scale(1.1);
 }
 
-.rec-card {
-  background: #1a1a1a;
-  border-radius: 10px;
-  overflow: hidden;
-  text-align: center;
-  padding-bottom: 10px;
-  transition: transform 0.3s;
+.card .thumb {
+    flex: 1;
+    border-radius: 8px;
+    background: #111;
 }
 
-.rec-card img {
-  width: 100%;
-  height: 250px;
-  object-fit: cover;
+.thumb img {
+    width: 100%;
+    border-radius: 12px;
+    height: 100%;
 }
 
-.rec-card h3 {
-  margin: 10px 0 5px;
-  font-size: 18px;
+.card .title {
+    font-weight: 600;
+    color: #fff
 }
 
-.rec-card p {
-  color: #ffd700;
-  margin: 0;
-  font-size: 14px;
+.card .sub {
+    font-size: 13px;
+    color: var(--muted)
 }
 
-.rec-card:hover {
-  transform: scale(1.05);
+.title {
+    font-size: 22px;
 }
+
 
 /* Responsive */
-@media (max-width: 768px) {
-  .movie-hero {
-    height: auto;
-    padding: 20px;
-    text-align: center;
-   
-  }
-  .movie-info h1 {
-    font-size: 32px;
-  }
+
+@media (max-width:880px) {
+    h1 {
+        font-size: 34px
+    }
+    .poster {
+        width: 160px;
+        height: 160px
+    }
 }
+
+@media (max-width:620px) {
+    .hero-card {
+        padding: 18px
+    }
+    .hero-main {
+        flex-direction: column;
+        gap: 14px
+    }
+    .content {
+        text-align: center
+    }
+    .meta {
+        justify-content: center
+    }
+    .genres {
+        justify-content: center
+    }
+}
+
+@media (max-width: 880px) {
+    h1 {
+        font-size: 34px;
+    }
+    .poster {
+        width: 180px;
+        height: 180px;
+    }
+    .hero-main {
+        gap: 18px;
+    }
+}
+
+@media (max-width: 620px) {
+    .hero-card {
+        padding: 18px;
+    }
+}
+
+@media only screen and (max-width: 620px) {
+    .menu {
+        display: none;
+    }
+    /* HERO qismi ustma-ust bo‘ladi */
+    .hero-main {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        gap: 16px;
+    }
+    .poster {
+        width: 160px;
+        height: 160px;
+    }
+    .content {
+        min-width: unset;
+        text-align: center;
+    }
+    .meta {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    .genres {
+        justify-content: center;
+    }
+}
+
+.actions {
+    display: flex;
+    gap: 12px;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 480px) {
+    .actions {
+        flex-direction: column;
+        /* 📱 telefonlarda pastma-past */
+        align-items: stretch;
+    }
+    .btn {
+        width: 100%;
+        text-align: center;
+    }
+}
+
+.action-section {
+    padding: 20px;
+    color: #fff;
+    position: relative;
+}
+
+.action-section h2 {
+    font-size: 24px;
+    margin-bottom: 14px;
+}
+
+
+/* Wrapper */
+
+.hslider-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+
+/* Slider */
+
+.hslider {
+    display: flex;
+    gap: 14px;
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    scroll-snap-type: x mandatory;
+    padding: 10px 0;
+}
+
+.hslider::-webkit-scrollbar {
+    display: none;
+}
+
+
+/* Card */
+
+.hslider .card {
+    flex: 0 0 auto;
+    width: 200px;
+    border-radius: 12px;
+    background: linear-gradient(180deg, rgba(255, 255, 255, 0.02), rgba(255, 255, 255, 0.01));
+    border: 1px solid rgba(255, 255, 255, 0.03);
+    overflow: hidden;
+    scroll-snap-align: start;
+    transition: transform 0.3s;
+}
+
+.hslider .card:hover {
+    transform: scale(1.05);
+}
+
+.hslider .card img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+.hslider .card .title {
+    font-weight: 600;
+    color: #fff;
+    font-size: 16px;
+    padding: 6px 8px;
+}
+
+.hslider .card .sub {
+    font-size: 13px;
+    color: var(--muted);
+    padding: 0 8px 10px;
+}
+
+
+/* Buttons */
+
+.hslide-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: var(--accent);
+    color: #fff;
+    border: none;
+    border-radius: 50%;
+    width: 42px;
+    height: 42px;
+    cursor: pointer;
+    font-size: 18px;
+    font-weight: bold;
+    z-index: 10;
+    opacity: 0.85;
+    transition: 0.3s;
+}
+
+.hslide-btn:hover {
+    opacity: 1;
+}
+
+.hslide-btn.left {
+    left: -20px;
+}
+
+.hslide-btn.right {
+    right: -20px;
+}
+
+
 /* Footer */
+
 .footer {
-  background: #0d0d0d;
-  color: #ccc;
-  text-align: center;
-  padding: 40px 20px;
-  margin-top: 50px;
+    background: #0d0d0d;
+    color: #ccc;
+    text-align: center;
+    padding: 40px 20px;
+    margin-top: 50px;
 }
 
 .footer-container {
-  max-width: 1000px;
-  margin: auto;
+    max-width: 1000px;
+    margin: auto;
 }
+
 
 /* Logo */
+
 .footer-logo h2 {
-  color: #fff;
-  font-size: 26px;
-  margin-bottom: 20px;
+    color: #fff;
+    font-size: 26px;
+    margin-bottom: 20px;
 }
 
+
 /* Navigatsiya */
+
 .footer-nav {
-  list-style: none;
-  padding-bottom: 30px;
-  margin: 0 0 20px 0;
-  display: flex;
-  justify-content: center;
-  gap: 40px;
-  flex-wrap: wrap;
+    list-style: none;
+    padding-bottom: 30px;
+    margin: 0 0 20px 0;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+    flex-wrap: wrap;
 }
 
 .footer-nav li a {
-  color: #ccc;
-  text-decoration: none;
-  font-size: 24px;
-  transition: color 0.3s;
+    color: #ccc;
+    text-decoration: none;
+    font-size: 24px;
+    transition: color 0.3s;
 }
 
 .footer-nav li a:hover {
-  color: #ff3d3d; /* hover effekti */
-}
-
-/* Social icons */
-.social-links {
-  margin: 20px 0;
-}
-
-.social-links  {
-  display:flex;
-  gap: 44px;
-  transition: transform 0.3s;
-  justify-content: center;
-}
-
-.social-links a:hover {
-  transform: scale(1.2);
-}
-
-/* Qisqa matn */
-.footer-info {
-  font-size: 12px;
-  color: #777;
-  margin-top: 15px;
+    color: #ff3d3d;
+    /* hover effekti */
 }
