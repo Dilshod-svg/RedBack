@@ -8,48 +8,72 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: black;
+            background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
             height: 100vh;
-            margin: 0
+            margin: 0;
         }
         
         .login-container {
-            filter: blur(5);
-            background: #121325;
+            background: rgba(18, 19, 37, 0.55);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
             padding: 30px;
-            border-radius: 12px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.12);
-            width: 320px
+            border-radius: 16px;
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            width: 340px;
+            position: relative;
+        }
+        
+        .top-buttons {
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 10px;
+        }
+        
+        .top-buttons button {
+            padding: 6px 14px;
+            background: rgba(0, 123, 255, 0.8);
+            color: #fff;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: 0.3s;
+        }
+        
+        .top-buttons button:hover {
+            background: rgba(8, 87, 172, 0.9);
         }
         
         h2 {
             text-align: center;
             color: #ffffff;
-            margin-bottom: 16px
+            margin-bottom: 16px;
         }
         
         input {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             margin-bottom: 12px;
             border: 1px solid #6a6666;
             border-radius: 8px;
             box-sizing: border-box;
             transition: 0.4s;
             color: white;
-            background-color: #1f1f1f;
+            background-color: rgba(31, 31, 31, 0.85);
         }
         
         input:focus {
             border-color: #007bff;
+            outline: none;
         }
         
-        button {
+        button#loginBtn {
             width: 100%;
-            padding: 10px;
+            padding: 12px;
             background: #007bff;
             color: #fff;
             border: none;
@@ -59,31 +83,35 @@
             transition: 0.4s;
         }
         
-        button:hover {
+        button#loginBtn:hover {
             background-color: #0857ac;
         }
         
         .error {
-            color: #b00020;
+            color: #ff4f4f;
             font-size: 14px;
             height: 18px;
             margin-bottom: 8px;
-            text-align: center
+            text-align: center;
         }
     </style>
 </head>
 
 <body>
     <div class="login-container" id="loginBox">
-        <h2>Admin kod parolini kiriting </h2>
+        <div class="top-buttons">
+            <button onclick="history.back()">🔙 Orqaga</button>
+            <button onclick="sessionStorage.removeItem('loggedIn'); window.location.href='login.html'">🚪 Chiqish</button>
+        </div>
+
+        <h2>Admin kod parolini kiriting</h2>
         <div class="error" id="errorMsg"></div>
-        <input type="text" id="username" placeholder="Admin Login  " autocomplete="username" />
+        <input type="text" id="username" placeholder="Admin Login" autocomplete="username" />
         <input type="password" id="password" placeholder="Admin parol" autocomplete="current-password" />
         <button id="loginBtn">Kirish</button>
     </div>
 
     <script>
-        // Demo ma'lumotlar (faqat test uchun)
         const userData = {
             username: 'admin',
             password: '0709'
@@ -109,7 +137,6 @@
                 return;
             }
             if (u === userData.username && p === userData.password) {
-                // sessionStorage ga yozamiz — faqat hozirgi oynaga amal qiladi
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index1.html';
             } else {
@@ -117,7 +144,6 @@
             }
         }
 
-        // Enter bilan ham ishlash
         [usernameInput, passwordInput].forEach(el =>
             el.addEventListener('keydown', e => {
                 if (e.key === 'Enter') login();
@@ -125,20 +151,11 @@
         );
         loginBtn.addEventListener('click', login);
 
-        // Avtomatik yo'naltirishni XUSUSIY holatlarda tekshirish:
-        // Agar siz login sahifasini faqat index1.html dan qaytib kelganda yo'naltirishni xohlasangiz,
-        // quyidagi loyihani o'zgartiring. Hozir esa sessionStorage tekshiradi:
         window.addEventListener('load', () => {
             if (sessionStorage.getItem('loggedIn') === 'true') {
-                // agar foydalanuvchi allaqachon shu oynada login bo'lsa, index1.html ga yuboradi
-                // agar siz buni xohlamasangiz, bu blokni o'chiring
                 window.location.href = 'index1.html';
             }
         });
-
-        // --- OPTIONAL: index1.html ichiga logout tugmasi qo'shish misoli ---
-        // index1.html sahifasida quyidagicha logout bajariladi:
-        // <button onclick="sessionStorage.removeItem('loggedIn'); window.location.href='login.html'">Chiqish</button>
     </script>
 </body>
 
