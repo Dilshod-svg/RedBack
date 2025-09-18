@@ -110,55 +110,9 @@
         <button id="loginBtn">Kirish</button>
     </div>
 
-    <script>
-        const userData = {
-            username: 'dilshod',
-            password: '0709'
-        };
-
-        const errorMsg = document.getElementById('errorMsg');
-        const usernameInput = document.getElementById('username');
-        const passwordInput = document.getElementById('password');
-        const loginBtn = document.getElementById('loginBtn');
-
-        function showError(text) {
-            errorMsg.textContent = text;
-            setTimeout(() => {
-                errorMsg.textContent = '';
-            }, 3500);
-        }
-
-        function login() {
-            const u = usernameInput.value.trim();
-            const p = passwordInput.value;
-
-            if (!u || !p) {
-                showError('Iltimos, foydalanuvchi nomi va parolni kiriting.');
-                return;
-            }
-
-            if (u === userData.username && p === userData.password) {
-                sessionStorage.setItem('loggedIn', 'true');
-                window.location.href = 'index1.html';
-            } else {
-                showError('Xato foydalanuvchi nomi yoki parol!');
-            }
-        }
-
-        [usernameInput, passwordInput].forEach(el =>
-            el.addEventListener('keydown', e => {
-                if (e.key === 'Enter') login();
-            })
-        );
-
-        loginBtn.addEventListener('click', login);
-
-        window.addEventListener('load', () => {
-            if (sessionStorage.getItem('loggedIn') === 'true') {
-                window.location.href = 'index1.html';
-            }
-        });
+    <script src="js/index.js">
     </script>
+
 </body>
 
 </html>
