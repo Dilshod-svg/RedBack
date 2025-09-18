@@ -8,52 +8,7 @@
     <link rel="stylesheet" href="css/registratsiya.css">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 </head>
-<script>
-    const savedUser = JSON.parse(localStorage.getItem("user"));
 
-    if (savedUser && inputEmail === savedUser.email && inputPass === savedUser.password) {
-        alert("Xush kelibsiz ✅");
-        window.location.href = "index.html";
-    } else {
-        alert("Email yoki parol noto‘g‘ri ❌");
-    }
-
-    (function() {
-        const form = document.querySelector('form[action="/dilshod.net"]');
-        const emailInput = document.getElementById("a"); // Email input
-        const passInput = document.getElementById("b"); // Password input
-        const kirishBtn = document.querySelector('.button-a.d a'); // "Kirish" tugmasi (birinchi d classli a)
-
-        if (!form || !emailInput || !passInput || !kirishBtn) {
-            console.warn("Form elementlari topilmadi");
-            return;
-        }
-
-        // "Kirish" tugmasini bosganda
-        kirishBtn.addEventListener("click", function(e) {
-            e.preventDefault();
-
-            const savedEmail = localStorage.getItem("userEmail");
-            const savedPass = localStorage.getItem("userPassword");
-
-            const inputEmail = emailInput.value.trim();
-            const inputPass = passInput.value;
-
-            if (!inputEmail || !inputPass) {
-                alert("Iltimos email va parol kiriting!");
-                return;
-            }
-
-            if (inputEmail === savedEmail && inputPass === savedPass) {
-                alert("Xush kelibsiz ✅");
-                // Asosiy sahifaga yo'naltirish
-                window.location.href = "index.html";
-            } else {
-                alert("Email yoki parol noto‘g‘ri ❌");
-            }
-        });
-    })();
-</script>
 
 <body>
     <div class="container1 ">
@@ -73,15 +28,14 @@
                                 <label for="b" class="form-label"></label>
                                 <input type="password" id="b" class="form-control" placeholder="Password">
                             </div>
-
-                            <div class="button-a d">
-                                <a href="#">Kirish</a>
+                            <div style="padding-top: 18px;">
+                                <button style="padding: 15px 88px; border: none; background-color:black; color: white;border-radius: 12px;">Krish</button>
                             </div>
-                            <div class="button-a b">
-                                <a href="#">Google</a>
+                            <div style="padding-top: 18px;">
+                                <button style="padding: 15px 80px; border: none; background-color:red; color: white;border-radius: 12px; margin-bottom: 16px;">Google</button>
                             </div>
-                            <div class="button-a c">
-                                <a href="registr.html">Registratsiya</a>
+                            <div>
+                                <button style="padding: 15px 60px; border: none; margin-bottom: 10px; background-color: blue; color: white;border-radius: 12px;">Registratsiya</button>
                             </div>
                             <a href="#">
         Parolni unutizmi?
