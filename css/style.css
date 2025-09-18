@@ -94,6 +94,7 @@ body {
     opacity: 0;
     transform: translateY(60px);
     animation: slideUp 0.8s ease forwards;
+    width: 80%;
 }
 
 .card:hover {
@@ -605,6 +606,31 @@ body {
         width: 100%;
     }
     .hero__text p {
-        width: 90% !important;
+        width: 100% !important;
+        font-size: 18px !important;
+    }
+    .hero__text h1 {
+        font-size: 44px !important;
+    }
+    .hero {
+        padding-top: 0 !important;
+    }
+    .card1 {
+        width: 40% !important;
+        height: auto !important;
+    }
+    .grid {
+        display: flex !important;
+        flex-wrap: wrap !important;
+        justify-content: center;
+    }
+}
+
+@media only screen and ( max-width:660px) {
+    .card1 {
+        width: 35% !important;
+    }
+    .card1 img {
+        width: 100%;
     }
 }

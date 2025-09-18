@@ -69,7 +69,7 @@
               localStorage.setItem('userPassword', p1);
               alert('Registratsiya muvaffaqiyatli ✅ Endi kirishingiz mumkin');
               // Login sahifasiga yo'naltirish — agar login.html yo'q bo'lsa, foydalanuvchi qoladi
-              window.location.href = 'login.html';
+              window.location.href = 'index1.html';
           } catch (err) {
               console.error('LocalStorage ga yozishda xato:', err);
               alert('Saqlashda xato yuz berdi — brauzer sozlamalarini tekshiring.');
