@@ -17,14 +17,13 @@
         }
         
         .login-container {
-            background: rgba(18, 19, 37, 0.55);
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
+            background: rgba(153, 153, 156, 0.55);
+            backdrop-filter: blur(6px);
+            -webkit-backdrop-filter: blur(6px);
             padding: 30px;
             border-radius: 16px;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+            box-shadow: 0 8px 20px rgba(69, 68, 68, 0.4);
             width: 340px;
-            position: relative;
         }
         
         .top-buttons {
@@ -71,7 +70,7 @@
             outline: none;
         }
         
-        button#loginBtn {
+        #loginBtn {
             width: 100%;
             padding: 12px;
             background: #007bff;
@@ -83,7 +82,7 @@
             transition: 0.4s;
         }
         
-        button#loginBtn:hover {
+        #loginBtn:hover {
             background-color: #0857ac;
         }
         
@@ -113,7 +112,7 @@
 
     <script>
         const userData = {
-            username: 'admin',
+            username: 'dilshod',
             password: '0709'
         };
 
@@ -132,10 +131,12 @@
         function login() {
             const u = usernameInput.value.trim();
             const p = passwordInput.value;
+
             if (!u || !p) {
                 showError('Iltimos, foydalanuvchi nomi va parolni kiriting.');
                 return;
             }
+
             if (u === userData.username && p === userData.password) {
                 sessionStorage.setItem('loggedIn', 'true');
                 window.location.href = 'index1.html';
@@ -149,6 +150,7 @@
                 if (e.key === 'Enter') login();
             })
         );
+
         loginBtn.addEventListener('click', login);
 
         window.addEventListener('load', () => {
