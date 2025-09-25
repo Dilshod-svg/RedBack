@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background: url("https://images.unsplash.com/photo-1507525428034-b723cf961d3e") no-repeat center center/cover;
+            background: url("https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?auto=format&fit=crop&w=1920&q=80") no-repeat center center/cover;
             display: flex;
             justify-content: center;
             align-items: center;
@@ -17,8 +17,8 @@
         }
         
         .login-container {
-            background: rgba(153, 153, 156, 0.55);
-            backdrop-filter: blur(6px);
+            background: black;
+            backdrop-filter: blur(5px);
             -webkit-backdrop-filter: blur(6px);
             padding: 30px;
             border-radius: 16px;
@@ -49,7 +49,7 @@
         
         h2 {
             text-align: center;
-            color: #ffffff;
+            color: #01a1fd;
             margin-bottom: 16px;
         }
         
@@ -100,10 +100,10 @@
     <div class="login-container" id="loginBox">
         <div class="top-buttons">
             <button onclick="history.back()">🔙 Orqaga</button>
-            <button onclick="sessionStorage.removeItem('loggedIn'); window.location.href='login.html'">🚪 Chiqish</button>
+            <button onclick="sessionStorage.removeItem('loggedIn'); window.location.href=`google.com`">🚪 Chiqish</button>
         </div>
 
-        <h2>Admin kod parolini kiriting</h2>
+        <h2>Kod va parolni kiriting</h2>
         <div class="error" id="errorMsg"></div>
         <input type="text" id="username" placeholder="Admin Login" autocomplete="username" />
         <input type="password" id="password" placeholder="Admin parol" autocomplete="current-password" />
